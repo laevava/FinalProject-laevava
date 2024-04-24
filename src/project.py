@@ -50,6 +50,17 @@ class CharacterAnim():
     def draw(self, surface):
         surface.blit(self.image, (0, 0))
 
+class MakeBackground():
+    def __init__(self):
+        self.image_list = self.load_images()
+
+    def load_images(self):
+        bg_images = []
+        for i in range(1, 5):
+            bg_image = pygame.image.load(f"img/bg_layer{i}.png")
+            bg_images.append(bg_image)
+        return bg_images
+
 def main():
     pygame.init()
     pygame.display.set_caption("Underwater World")
