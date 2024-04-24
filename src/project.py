@@ -53,6 +53,7 @@ class CharacterAnim():
 class MakeBackground():
     def __init__(self):
         self.image_list = self.load_images()
+        self.scroll = 0
 
     def load_images(self):
         bg_images = []
@@ -60,6 +61,13 @@ class MakeBackground():
             bg_image = pygame.image.load(f"img/bg_layer{i}.png")
             bg_images.append(bg_image)
         return bg_images
+    
+    def create_loop(self):
+        # Moves the background
+        if pygame.key.get_pressed()[pygame.K_LEFT] and self.scroll > 0:
+            self.scroll -= 5
+        elif pygame.key.get_pressed()[pygame.K_RIGHT] and self.scroll < 1000:
+            self.scroll += 5
 
 def main():
     pygame.init()
