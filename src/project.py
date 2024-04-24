@@ -62,6 +62,11 @@ class MakeBackground():
             bg_images.append(bg_image)
         return bg_images
     
+    def draw_bg(self, surface):
+        for x in range(4):
+            for img in self.image_list:
+                surface.blit(img, ((x * 768) - self.scroll, 0))
+    
     def create_loop(self):
         # Moves the background
         if pygame.key.get_pressed()[pygame.K_LEFT] and self.scroll > 0:
@@ -75,6 +80,7 @@ def main():
     resolution = (768, 432)
     screen = pygame.display.set_mode(resolution)
     character = CharacterAnim()
+    background = MakeBackground()
 
     running = True
     while running:
@@ -95,9 +101,9 @@ def main():
 
         # Game Logic
         character.update_anim()
+        background.create_loop()
         # Render & Display
-        gray = (50, 50, 50)
-        screen.fill((gray))
+        background.draw_bg(screen)
         character.draw(screen)
         pygame.display.flip()
     pygame.quit()
