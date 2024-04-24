@@ -48,7 +48,7 @@ class CharacterAnim():
             self.last_update = pygame.time.get_ticks()
 
     def draw(self, surface):
-        surface.blit(self.image, (0, 0))
+        surface.blit(self.image, (334, 312))
 
 class MakeBackground():
     def __init__(self):
@@ -81,11 +81,14 @@ def main():
     pygame.display.set_caption("Underwater World")
     resolution = (768, 432)
     screen = pygame.display.set_mode(resolution)
+    clock = pygame.time.Clock()
+    FPS = 60
     character = CharacterAnim()
     background = MakeBackground()
 
     running = True
     while running:
+        clock.tick(FPS)
         # Event Loop
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
