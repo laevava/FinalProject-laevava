@@ -41,6 +41,12 @@ class CharacterAnim():
         if self.frame >= len(self.anim_list[self.action]):
             self.frame = 0
 
+    def update_action(self, new_action):
+        if new_action != self.action:
+            self.action = new_action
+            self.frame = 0
+            self.last_update = pygame.time.get_ticks()
+
     def draw(self, surface):
         surface.blit(self.image, (0, 0))
 
