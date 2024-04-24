@@ -64,8 +64,10 @@ class MakeBackground():
     
     def draw_bg(self, surface):
         for x in range(4):
+            speed = 0.8
             for img in self.image_list:
-                surface.blit(img, ((x * 768) - self.scroll, 0))
+                surface.blit(img, ((x * 768) - self.scroll * speed, 0))
+                speed += 0.3
     
     def create_loop(self):
         # Moves the background
