@@ -66,6 +66,14 @@ def main():
             elif event.type == pygame.KEYDOWN and event.key == pygame.K_ESCAPE:
                 running = False
 
+            # Character Direction Changes
+            if event.type == pygame.KEYDOWN and event.key == pygame.K_RIGHT:
+                character.update_action(0)
+            elif event.type == pygame.KEYDOWN and event.key == pygame.K_LEFT:
+                character.update_action(1)
+            else:
+                character.update_action(2)
+
         # Game Logic
         character.update_anim()
         # Render & Display
