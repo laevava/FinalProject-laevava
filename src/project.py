@@ -7,7 +7,7 @@ class LoadSprite():
 
     def load_sheet(self, frame, width, height):
         image = pygame.Surface((width, height))
-        image.blit(self.sheet, (0, 0), frame*width, 0, width, height)
+        image.blit(self.sheet, (0, 0), (frame*width, 0, width, height))
         black = (0, 0, 0)
         # Creates Transparent Background
         image.set_colorkey(black)
@@ -41,11 +41,15 @@ class CharacterAnim():
         if self.frame >= len(self.anim_list[self.action]):
             self.frame = 0
 
+    def draw(self, surface):
+        surface.blit(self.image, (0, 0))
+
 def main():
     pygame.init()
     pygame.display.set_caption("Underwater World")
     resolution = (768, 432)
     screen = pygame.display.set_mode(resolution)
+    character = CharacterAnim()
 
     running = True
     while running:
@@ -57,10 +61,11 @@ def main():
                 running = False
 
         # Game Logic
-
+        character.update_anim()
         # Render & Display
         gray = (50, 50, 50)
         screen.fill((gray))
+        character.draw(screen)
         pygame.display.flip()
     pygame.quit()
 
