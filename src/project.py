@@ -19,6 +19,9 @@ class CharacterAnim():
         self.char_sheet = LoadSprite(self.sprite_imgs)
         self.anim_frames = [4, 4, 4]
         self.anim_list = []
+        self.frame = 0
+        self.action = 0
+        self.last_update = pygame.time.get_ticks()
         # Creates the animation list for each step
         counter = 0
         for animation in self.anim_frames:
@@ -27,6 +30,16 @@ class CharacterAnim():
                 loop_list.append(self.char_sheet.load_sheet(counter, 100, 100))
                 counter += 1
             self.anim_list.append(loop_list)
+        self.image = self.anim_list[self.action][self.frame]
+
+    def update_anim(self):
+        anim_cd = 150
+        self.image = self.anim_list[self.action][self.frame]
+        if pygame.time.get_ticks() - self.last_update > anim_cd:
+            self.last_update = pygame.time.get_ticks()
+            self.frame += 1
+        if self.frame >= len(self.anim_list[self.action]):
+            self.frame = 0
 
 def main():
     pygame.init()
