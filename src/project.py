@@ -13,6 +13,21 @@ class LoadSprite():
         image.set_colorkey(black)
         return image
 
+class CharacterAnim():
+    def __init__(self):
+        self.sprite_imgs = pygame.image.load('img/char_sprite.png').convert_alpha()
+        self.char_sheet = LoadSprite(self.sprite_imgs)
+        self.anim_frames = [4, 4, 4]
+        self.anim_list = []
+        # Creates the animation list for each step
+        counter = 0
+        for animation in self.anim_frames:
+            loop_list = []
+            for _ in range(animation):
+                loop_list.append(self.char_sheet.load_sheet(counter, 100, 100))
+                counter += 1
+            self.anim_list.append(loop_list)
+
 def main():
     pygame.init()
     pygame.display.set_caption("Underwater World")
