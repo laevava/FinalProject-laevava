@@ -3,7 +3,7 @@ Underwater World
 (FinalProject-laevava)
 
 ## Demo
-Demo Video: <URL>
+Demo Video: <https://youtu.be/Rf9mLG3sM2c>
 
 ## GitHub Repository
 GitHub Repo: <https://github.com/laevava/FinalProject-laevava>
@@ -14,9 +14,8 @@ in depth backgorund. The project is controlled by the arrow keys, meaning that t
 and the background both move when the keys are pressed. The character and the background both
 are designed after an underwater theme.
     The project.py file contains the code for this project, the requirements.txt file contains
-the name(s) of the pip-installable libraries needed for this project, the img folder contains the
-images used for the background and the characters, and the proposal.md file contains the proposal
-for this project.
+the name(s) of the pip-installable libraries needed for this project, and the img folder contains the
+images used for the background and the characters.
     In the design for my project, I had to consider how many classes to have, when to implement
 the key presses for the game, and which variables should be self variables and which shouldn't.
 In the future, I would like to add more actions for the character to do, such as a jump, and I would
